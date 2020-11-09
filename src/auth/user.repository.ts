@@ -15,7 +15,7 @@ export class UserRepository extends Repository<User> {
     user.password = await this.hashPassword(password, user.salt);
 
     try {
-      // await user.save();
+      await user.save();
     } catch (error) {
       if (error.code === '23505') {
         throw new ConflictException('Username already exists');
