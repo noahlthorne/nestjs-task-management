@@ -24,7 +24,7 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
     const user = await this.userRepository.findOne({username});
 
     if (!user) {
-      throw new UnauthorizedException('user not found');
+      throw new UnauthorizedException('that user does not exist');
     }
 
     return user;
